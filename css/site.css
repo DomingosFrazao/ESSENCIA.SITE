@@ -211,3 +211,8 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 /* V7B — vídeo do topo (versão V06, horizontal) */
 .hero-video{object-position:center center !important}
 @media(max-width:760px){.hero-video{object-position:12% center !important}}
+/* V7B — bloco da autoavaliação no Início */
+.diag-teaser{background:var(--paper,#fcfbf8);border-top:1px solid var(--line,#dfddd5);border-bottom:1px solid var(--line,#dfddd5)}
+.diag-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.diag-inner p{max-width:560px}
+@media(max-width:760px){.diag-inner{grid-template-columns:1fr;gap:12px}}

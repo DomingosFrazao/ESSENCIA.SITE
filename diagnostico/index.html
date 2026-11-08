@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Como respiras? Autoavaliação de respiração · ESSEN.CIA</title>
+<meta name="description" content="Seis perguntas e um teste curto para perceberes como respiras e por onde começar. Demora cerca de 3 minutos.">
+<style>
+  :root{
+    --ink:#252a27; --muted:#626b64; --cream:#f5f2ec; --paper:#fcfbf8; --line:#dfddd5;
+    --deep:#252e29; --sage:#7b826e; --sage-soft:#e9ebe3; --amber:#a87a16; --amber-soft:#f3ead6;
+    --rust:#9a4b3c; --rust-soft:#f3e2dc;
+    --serif:Georgia,'Times New Roman',serif; --sans:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+  a{color:inherit}
+  .head{background:var(--deep);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .head img{height:34px;display:block}
+  .head a.back{color:#e8e6df;font-size:.85rem;text-decoration:none;border-bottom:1px solid rgba(232,230,223,.4)}
+  main{max-width:560px;margin:0 auto;padding:36px 18px 64px}
+  .eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);font-weight:600;margin:0 0 10px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+  h1{font-size:clamp(2rem,6vw,2.6rem);line-height:1.15;margin-bottom:14px}
+  h2{font-size:1.45rem;line-height:1.3;margin-bottom:18px}
+  h3{font-size:1.5rem;line-height:1.25}
+  p{margin:0 0 14px}
+  .muted{color:var(--muted)}
+  .progress{display:flex;gap:5px;margin:0 0 16px;min-height:4px}
+  .progress span{flex:1;height:4px;border-radius:2px;background:var(--line)}
+  .progress span.done{background:var(--sage)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:clamp(22px,5vw,34px)}
+  [data-step]{display:none}
+  [data-step].active{display:block}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 20px}
+  .meta span{font-size:.8rem;border:1px solid var(--line);border-radius:2px;padding:4px 10px;color:var(--muted);background:#fff}
+  .qnum{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);font-weight:600;display:block;margin-bottom:8px}
+  .options{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:8px}
+  .opt{border:1px solid var(--line);background:#fff;border-radius:3px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:var(--sage)}
+  .opt.selected{border-color:var(--deep);background:var(--sage-soft);font-weight:600}
+  .opt:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+  button,.btn{font:inherit;font-size:.9rem;font-weight:600;border:0;border-radius:2px;padding:14px 20px;cursor:pointer;width:100%;display:block;text-align:center;text-decoration:none}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .primary{background:var(--deep);color:#fff}
+  .secondary{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .link{background:none;color:var(--muted);text-decoration:underline;padding:8px;width:auto;margin:6px auto 0}
+  .note{border-left:3px solid var(--amber);background:var(--amber-soft);padding:11px 14px;font-size:.88rem;margin:0 0 20px}
+  .note.warn{border-left-color:var(--rust);background:var(--rust-soft)}
+  ol.steps{margin:0 0 18px;padding-left:20px}
+  ol.steps li{margin-bottom:6px}
+  .ring-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;padding:6px 0 10px}
+  .ring{width:190px;height:190px;border-radius:50%;border:6px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+  .ring::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:6px solid var(--sage);opacity:.35}
+  @media (prefers-reduced-motion:no-preference){.ring::after{animation:breathe 2.6s ease-in-out infinite}}
+  @keyframes breathe{0%,100%{opacity:.25}50%{opacity:.7}}
+  .ring .num{font-family:var(--serif);font-size:2.6rem;font-variant-numeric:tabular-nums}
+  .ring .unit{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .result-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .dot{width:11px;height:11px;border-radius:50%;flex:none}
+  .t-baixa{background:var(--rust)} .t-moderada{background:var(--amber)} .t-boa{background:var(--sage)}
+  .priority{background:#fff;border:1px solid var(--line);padding:12px 14px;font-size:.92rem;margin:0 0 20px}
+  .scale{margin:0 0 22px}
+  .track{position:relative;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--rust),var(--amber),var(--sage))}
+  .marker{position:absolute;top:-5px;width:4px;height:18px;background:var(--ink);transform:translateX(-50%);transition:left .5s}
+  .scale-labels{display:flex;justify-content:space-between;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .snap{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:#fff;margin:0 0 20px}
+  .snap div{padding:12px 6px;text-align:center;border-left:1px solid var(--line)}
+  .snap div:first-child{border-left:0}
+  .snap small{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .snap b{font-family:var(--serif);font-weight:400;font-size:1.35rem}
+  details{border:1px solid var(--line);background:#fff;margin-bottom:8px}
+  summary{cursor:pointer;padding:12px 14px;display:flex;gap:10px;align-items:center;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary .name{flex:1}
+  .tag{font-size:.72rem;padding:2px 9px;border-radius:10px;font-weight:600}
+  .tag.t-baixa{background:var(--rust-soft);color:var(--rust)} .tag.t-moderada{background:var(--amber-soft);color:var(--amber)} .tag.t-boa{background:var(--sage-soft);color:#4e5546}
+  details p{padding:0 14px 14px;margin:0;font-size:.92rem;color:var(--muted)}
+  .next{border-top:1px solid var(--line);margin-top:24px;padding-top:22px}
+  .next .actions{display:flex;flex-direction:column;gap:10px}
+  footer{max-width:560px;margin:0 auto;padding:0 18px 40px;font-size:.8rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<header class="head">
+  <a href="../index.html" aria-label="ESSEN.CIA, página inicial"><img src="../assets/img/img-01.png" alt="ESSEN.CIA"></a>
+  <a class="back" href="../index.html">Voltar ao site</a>
+</header>
+
+<main>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="card">
+
+    <section data-step="intro" class="active">
+      <p class="eyebrow">Autoavaliação · 3 minutos</p>
+      <h1>Como respiras?</h1>
+      <p>Cinco perguntas e um teste curto. No fim, vês como respiras em repouso e por onde faz sentido começar.</p>
+      <div class="meta"><span>5 perguntas</span><span>1 teste de 30 a 60 segundos</span><span>Sem registo</span></div>
+      <p class="note">Isto é uma autoavaliação para observares a tua respiração. Não é um diagnóstico médico.</p>
+      <button class="primary" id="start">Começar</button>
+    </section>
+
+    <section data-step="q1">
+      <span class="qnum">Pergunta 1 de 6</span>
+      <h2>Em repouso, por onde respiras a maior parte do tempo?</h2>
+      <ul class="options" data-q="q1">
+        <li class="opt" tabindex="0" data-value="3">Pelo nariz, quase sempre</li>
+        <li class="opt" tabindex="0" data-value="2">Sobretudo pelo nariz</li>
+        <li class="opt" tabindex="0" data-value="1">Pelo nariz e pela boca</li>
+        <li class="opt" tabindex="0" data-value="0">Sobretudo pela boca</li>
+      </ul>
+      <button class="primary" data-next disabled>Continuar</button>
+    </section>
+
+    <section data-step="q2">
+      <span class="qnum">Pergunta 2 de 6</span>
+      <h2>Quando respiras sem pensar nisso, onde sentes o movimento?</h2>
+      <ul class="options" data-q="q2">
+        <li class="opt" tabindex="0" data-value="0">Sobretudo no peito e nos ombros</li>
+        <li class="opt" tabindex="0" data-value="1">Não sei dizer</li>
+        <li class="opt" tabindex="0" data-value="3">Sobretudo na barriga e nas costelas</li>
+      </ul>
+      <button class="primary" data-next disabled>Continuar</button>
+    </section>
+
+    <section data-step="q3">
+      <span class="qnum">Pergunta 3 de 6</span>
+      <h2>Como costumas acordar?</h2>
+      <ul class="options" data-q="q3">
+        <li class="opt" tabindex="0" data-value="0">Com a boca seca ou depois de ressonar</li>
+        <li class="opt" tabindex="0" data-value="1.5">Com o nariz entupido, muitas vezes</li>
+        <li class="opt" tabindex="0" data-value="3">Nenhuma das anteriores</li>
+      </ul>
+      <button class="primary" data-next disabled>Continuar</button>
+    </section>
+
+    <section data-step="q4">
+      <span class="qnum">Pergunta 4 de 6</span>
+      <h2>Com que frequência dás suspiros grandes sem razão aparente?</h2>
+      <ul class="options" data-q="q4">
+        <li class="opt" tabindex="0" data-value="3">Raramente</li>
+        <li class="opt" tabindex="0" data-value="1.5">Algumas vezes por dia</li>
+        <li class="opt" tabindex="0" data-value="0">Muitas vezes por dia</li>
+      </ul>
+      <button class="primary" data-next disabled>Continuar</button>
+    </section>
+
+    <section data-step="q5">
+      <span class="qnum">Pergunta 5 de 6</span>
+      <h2>Como está o teu nível de alerta no dia a dia?</h2>
+      <ul class="options" data-q="q5">
+        <li class="opt" tabindex="0" data-value="3">Calmo, a maior parte do tempo</li>
+        <li class="opt" tabindex="0" data-value="1.5">Tenso, mas consigo funcionar</li>
+        <li class="opt" tabindex="0" data-value="0">Muitas vezes em alerta ou ansioso</li>
+      </ul>
+      <button class="primary" data-next disabled>Continuar</button>
+    </section>
+
+    <section data-step="q6">
+      <span class="qnum">Pergunta 6 de 6</span>
+      <h2>Teste curto: quanto tempo aguentas sem ar?</h2>
+      <p>Este teste mede a tolerância ao dióxido de carbono (CO2). Não é para aguentar o máximo. Para no primeiro sinal de vontade de respirar.</p>
+      <ol class="steps">
+        <li>Senta-te e respira normalmente durante uns segundos.</li>
+        <li>No fim de uma expiração <b>normal</b>, não funda, tapa o nariz e carrega no botão.</li>
+        <li>Carrega outra vez quando sentires o <b>primeiro</b> impulso para respirar.</li>
+      </ol>
+      <p class="note warn">Não respires depressa antes do teste. Se tens uma condição cardíaca ou respiratória, ou estás grávida, fala antes com o teu médico e salta este passo.</p>
+      <button class="primary" id="hold-start">Tapei o nariz: começar</button>
+      <button class="link" id="skip">Saltar o teste</button>
+    </section>
+
+    <section data-step="hold">
+      <div class="ring-wrap">
+        <div class="ring"><span class="num" id="timer">0.0</span><span class="unit">segundos</span></div>
+        <p class="muted" style="text-align:center;margin:0">Carrega assim que sentires o primeiro impulso para respirar.</p>
+        <button class="primary" id="hold-stop">Senti o impulso: parar</button>
+      </div>
+    </section>
+
+    <section data-step="result">
+      <p class="eyebrow">O teu resultado</p>
+      <div class="result-title"><span class="dot" id="dot"></span><h3 id="title">—</h3></div>
+      <p class="priority" id="priority"></p>
+      <div class="scale">
+        <div class="track"><div class="marker" id="marker" style="left:0%"></div></div>
+        <div class="scale-labels"><span>Pede atenção</span><span>Intermédio</span><span>Bom</span></div>
+      </div>
+      <div class="snap">
+        <div><small>Padrão</small><b id="s1">–</b></div>
+        <div><small>Teste CO2</small><b id="s2">–</b></div>
+        <div><small>Regulação</small><b id="s3">–</b></div>
+      </div>
+      <details open><summary><span class="name">Padrão respiratório</span><span class="tag" id="tag1"></span></summary><p id="txt1"></p></details>
+      <details><summary><span class="name">Tolerância ao CO2</span><span class="tag" id="tag2"></span></summary><p id="txt2"></p></details>
+      <details><summary><span class="name">Regulação e stress</span><span class="tag" id="tag3"></span></summary><p id="txt3"></p></details>
+      <p class="muted" style="font-size:.85rem;margin-top:14px">Os valores do teste de CO2 são uma referência usada por quem trabalha com respiração, não um limite científico fixo. Repete daqui a umas semanas: a tendência diz mais do que um resultado isolado.</p>
+
+      <div class="next">
+        <h2 style="margin-bottom:10px">E agora?</h2>
+        <p>Se quiseres, falamos sobre o teu resultado numa conversa curta e gratuita. Vemos o que faz sentido para ti, sem compromisso.</p>
+        <div class="actions">
+          <a class="btn primary" id="wa" href="https://wa.me/351912145691" target="_blank" rel="noopener noreferrer">Enviar o resultado por WhatsApp</a>
+          <a class="btn secondary" href="../index.html#contacto">Marcar conversa gratuita</a>
+          <button class="link" id="restart">Fazer outra vez</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>ESSEN.CIA · Respiração · Corpo · Consciência<br>Autoavaliação para observação pessoal. Não substitui acompanhamento médico.</footer>
+
+<script>
+(function(){
+  var ORDER=['intro','q1','q2','q3','q4','q5','q6','hold','result'];
+  var QS=['q1','q2','q3','q4','q5'];
+  var answers={}, bolt=null, t0=0, raf=0, summary='';
+  var steps=document.querySelectorAll('[data-step]');
+  function go(name){
+    steps.forEach(function(s){s.classList.toggle('active',s.dataset.step===name)});
+    var p=document.getElementById('progress'); p.innerHTML='';
+    if(name!=='intro'){var i=ORDER.indexOf(name);for(var k=1;k<ORDER.length;k++){var d=document.createElement('span');if(k<=i)d.className='done';p.appendChild(d)}}
+    window.scrollTo(0,0);
+  }
+  QS.forEach(function(q){
+    var sec=document.querySelector('[data-step="'+q+'"]'), opts=sec.querySelectorAll('.opt'), nxt=sec.querySelector('[data-next]');
+    opts.forEach(function(o){
+      function pick(){opts.forEach(function(x){x.classList.remove('selected')});o.classList.add('selected');answers[q]=parseFloat(o.dataset.value);nxt.disabled=false}
+      o.addEventListener('click',pick);
+      o.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}});
+    });
+    nxt.addEventListener('click',function(){go(ORDER[ORDER.indexOf(q)+1])});
+  });
+  document.getElementById('start').addEventListener('click',function(){go('q1')});
+  var tEl=document.getElementById('timer');
+  function tick(){tEl.textContent=((Date.now()-t0)/1000).toFixed(1);raf=requestAnimationFrame(tick)}
+  document.getElementById('hold-start').addEventListener('click',function(){go('hold');t0=Date.now();tEl.textContent='0.0';raf=requestAnimationFrame(tick)});
+  document.getElementById('hold-stop').addEventListener('click',function(){cancelAnimationFrame(raf);bolt=(Date.now()-t0)/1000;result()});
+  document.getElementById('skip').addEventListener('click',function(){bolt=null;result()});
+
+  function boltScore(s){if(s<10)return 0;if(s<20)return 1;if(s<25)return 2;if(s<40)return 2.5;return 3}
+  function pct(x){return Math.round(x/3*100)}
+  function tier(p){return p<34?{t:'Pede atenção',c:'t-baixa',k:'b'}:p<67?{t:'Intermédio',c:'t-moderada',k:'m'}:{t:'Bom',c:'t-boa',k:'o'}}
+  var TX={
+    eff:{b:'A respiração passa sobretudo pelo peito ou pela boca. Um bom primeiro passo é reparar nisto ao longo do dia e voltar ao nariz e à barriga, sem forçar.',
+         m:'Já respiras pelo nariz e pela barriga parte do tempo. Vale a pena reparar no que muda quando estás sob pressão, que é quando o padrão costuma mudar.',
+         o:'Respiras sobretudo pelo nariz e pela barriga. A base está lá. O trabalho é manter este padrão também nos dias exigentes.'},
+    co2:{b:'Tolerância baixa ao CO2. É comum em quem respira pela boca ou pelo peito. Respirar pelo nariz, devagar e em repouso, é um bom ponto de partida.',
+         m:'Tolerância intermédia. É um ponto de partida normal para quem nunca treinou a respiração. Repete o teste noutros dias para veres a tendência.',
+         o:'Tolerância boa. Repete o teste num dia de mais stress: é normal o valor variar.',
+         x:'Saltaste o teste. Podes fazê-lo noutra altura, sentado e com calma.'},
+    reg:{b:'Há sinais de alerta frequente e muitos suspiros. Pausas curtas para respirar, várias vezes ao dia, costumam ajudar mais do que uma prática longa de vez em quando.',
+         m:'Tenso, mas a funcionar. É uma boa altura para criar uma pausa curta e regular no teu dia.',
+         o:'Estás calmo a maior parte do tempo. Mantém o que já funciona.'}
+  };
+  var PR={eff:'o padrão respiratório. Começa por reparar se respiras pelo nariz e pela barriga.',co2:'a tolerância ao CO2. Respirar pelo nariz, devagar, em repouso.',reg:'a regulação. Pausas curtas e frequentes ao longo do dia.'};
+
+  function result(){
+    var p1=pct((answers.q1+answers.q2+answers.q3)/3), p3=pct((answers.q4+answers.q5)/2);
+    var hasBolt=bolt!==null, p2=hasBolt?pct(boltScore(bolt)):null, secs=hasBolt?Math.round(bolt):null;
+    var t1=tier(p1), t3=tier(p3), t2=hasBolt?tier(p2):null;
+    document.getElementById('s1').textContent=p1+'%';
+    document.getElementById('s2').textContent=hasBolt?secs+' s':'–';
+    document.getElementById('s3').textContent=p3+'%';
+    function setTag(id,t){var e=document.getElementById(id);e.textContent=t?t.t:'Sem teste';e.className='tag '+(t?t.c:'')}
+    setTag('tag1',t1);setTag('tag2',t2);setTag('tag3',t3);
+    document.getElementById('txt1').textContent=TX.eff[t1.k];
+    document.getElementById('txt2').textContent=hasBolt?TX.co2[t2.k]:TX.co2.x;
+    document.getElementById('txt3').textContent=TX.reg[t3.k];
+    var vals=[{k:'eff',v:p1},{k:'reg',v:p3}]; if(hasBolt)vals.push({k:'co2',v:p2});
+    var avg=vals.reduce(function(a,b){return a+b.v},0)/vals.length, ov=tier(avg);
+    var title=avg<34?'A tua respiração pede atenção':avg<67?'Há uma boa base para trabalhar':'Tens um padrão de respiração sólido';
+    document.getElementById('title').textContent=title;
+    document.getElementById('dot').className='dot '+ov.c;
+    document.getElementById('marker').style.left=Math.max(2,Math.min(98,avg))+'%';
+    var pr=document.getElementById('priority');
+    if(vals.every(function(x){return x.v>=67})){pr.innerHTML='<b>Sem prioridade urgente.</b> Mantém o teu padrão, sobretudo nos dias de mais pressão.'}
+    else{vals.sort(function(a,b){return a.v-b.v});pr.innerHTML='<b>Por onde começar:</b> '+PR[vals[0].k]}
+    summary='Olá! Fiz a autoavaliação de respiração no site da ESSEN.CIA.\n'+
+      'Resultado: '+title+'\n'+
+      'Padrão respiratório: '+p1+'% ('+t1.t+')\n'+
+      'Teste CO2: '+(hasBolt?secs+' s ('+t2.t+')':'não fiz')+'\n'+
+      'Regulação: '+p3+'% ('+t3.t+')\n'+
+      'Gostava de falar sobre isto.';
+    document.getElementById('wa').href='https://wa.me/351912145691?text='+encodeURIComponent(summary);
+    go('result');
+  }
+  document.getElementById('restart').addEventListener('click',function(){
+    answers={};bolt=null;
+    document.querySelectorAll('.opt.selected').forEach(function(o){o.classList.remove('selected')});
+    document.querySelectorAll('[data-next]').forEach(function(b){b.disabled=true});
+    go('intro');
+  });
+  go('intro');
+})();
+</script>
+</body>
+</html>
