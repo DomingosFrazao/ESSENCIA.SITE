@@ -208,3 +208,6 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
   .image-strip{gap:8px !important}
   .image-strip .image-frame,.image-strip .image-frame:nth-child(2),.image-strip .image-frame:nth-child(3){height:150px !important;margin:0 !important;aspect-ratio:auto !important}
 }
+/* V7B — vídeo do topo (versão V06, horizontal) */
+.hero-video{object-position:center center !important}
+@media(max-width:760px){.hero-video{object-position:12% center !important}}
