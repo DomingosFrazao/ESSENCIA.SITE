@@ -285,3 +285,4 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .details>.session-side,.details .session-side{position:static;height:330px!important;min-height:0}
 .details .session-side img{position:static;height:100%!important;width:100%}
 }
+.card-photo img[src*="desporto"]{object-position:50% 66%!important}
