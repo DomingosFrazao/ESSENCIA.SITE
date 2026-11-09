@@ -274,3 +274,14 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .image-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important;width:auto!important;max-width:none!important}
 .image-strip .image-frame,.image-strip .image-frame:nth-child(2),.image-strip .image-frame:nth-child(3){aspect-ratio:auto!important;width:auto!important;min-width:0}
 @media(max-width:760px){.image-strip{gap:8px!important}}
+/* v8: imagens laterais acompanham a altura do texto (do topo ao fim do texto) */
+@media(min-width:761px){
+.cols,.essence-section,.quote-cols{align-items:stretch!important}
+.cols>.feature-photo,.details>.session-side,.essence-section>.essence-img,.quote-cols>.quote-photo{position:relative;height:auto!important;min-height:300px;margin-top:0!important;align-self:stretch}
+.cols>.feature-photo img,.details>.session-side img,.essence-section>.essence-img img,.quote-cols>.quote-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+}
+@media(min-width:761px){
+.details{align-items:center!important}
+.details>.session-side,.details .session-side{position:static;height:330px!important;min-height:0}
+.details .session-side img{position:static;height:100%!important;width:100%}
+}
