@@ -251,3 +251,14 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .card-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-video{object-position:center 60% !important}
 @media(max-width:760px){.hero-video{object-position:center center !important}}
+
+/* v8: retrato em círculo, logos, velas, enquadramentos */
+.about-top .portrait-round{width:min(400px,100%);height:auto!important;aspect-ratio:1/1;border-radius:50%;justify-self:center;background:transparent}
+.about-top .portrait-round img{object-position:center 30%}
+.partner-mark{height:104px!important;width:104px!important;flex-basis:104px!important}
+.partner-mark img{object-fit:cover}
+.quote-cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:56px;align-items:center}
+.quote-photo{height:400px}.quote-photo img{object-position:center 62%}
+.essence-section:nth-of-type(2) .essence-img{height:520px}
+.essence-section:nth-of-type(3) .essence-img{height:330px;margin-top:40px}
+@media(max-width:760px){.quote-cols{grid-template-columns:1fr;gap:28px}.quote-photo{height:240px}.about-top .portrait-round{width:min(300px,80%)}.partner-mark{height:82px!important;width:82px!important;flex-basis:82px!important}.essence-section:nth-of-type(n) .essence-img{height:280px;margin-top:0}}
