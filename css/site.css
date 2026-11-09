@@ -296,3 +296,8 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .footer-nav a:hover,.footer-nav a:focus-visible{background-size:100% 1px}
 .footer-small .legal-links{margin-top:0}
 .self-check{margin:34px 0 8px;padding:22px 0 0;border-top:1px solid rgba(127,127,127,.3)}.self-check p{margin-bottom:10px}
+/* v8: caixa da autoavaliação */
+.self-check{display:flex!important;gap:22px;align-items:flex-start;margin:36px 0 26px!important;padding:26px 28px!important;border:1px solid #cfd3c8!important;border-top:3px solid #8a9a86!important;background:rgba(255,255,255,.72);max-width:780px}
+.self-check-icon{flex:0 0 54px;height:54px;border-radius:50%;background:#e4e8df;color:#4f6150;display:flex;align-items:center;justify-content:center}
+.self-check-body p{margin:0 0 16px}
+@media(max-width:760px){.self-check{flex-direction:column;gap:14px;padding:22px 20px!important}.self-check .btn{width:100%;justify-content:center}}
