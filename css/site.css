@@ -285,3 +285,5 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 }
 .card-photo img[src*="desporto"]{object-position:50% 66%!important}
 @media(min-width:761px){.essence-section{align-items:center!important}.essence-section>.essence-img{height:420px!important;align-self:center}}
+.essence-img img[src*="explorar"]{object-position:center 18%!important}
+.quote-photo img[src*="integracao"]{object-position:center 70%!important}
