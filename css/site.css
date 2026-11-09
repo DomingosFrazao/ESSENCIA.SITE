@@ -227,3 +227,6 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 #contact-form label:not(.check-line){display:block !important}
 #contact-form label:not(.check-line) input,#contact-form label:not(.check-line) select,#contact-form label:not(.check-line) textarea{display:block;width:100%;margin-top:8px}
 #contact-form label.check-line{flex-direction:row !important}
+/* V7B — tamanhos uniformes: corpo 17.5px, notas 15.5px */
+.format-card p{font-size:17.5px !important}
+.format-card .card-small,.card-small,.contact-collab{font-size:15.5px !important}
