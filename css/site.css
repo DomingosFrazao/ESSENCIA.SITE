@@ -262,3 +262,11 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .essence-section:nth-of-type(2) .essence-img{height:520px}
 .essence-section:nth-of-type(3) .essence-img{height:330px;margin-top:40px}
 @media(max-width:760px){.quote-cols{grid-template-columns:1fr;gap:28px}.quote-photo{height:240px}.about-top .portrait-round{width:min(300px,80%)}.partner-mark{height:82px!important;width:82px!important;flex-basis:82px!important}.essence-section:nth-of-type(n) .essence-img{height:280px;margin-top:0}}
+/* v8: organizações — texto em cima, Empresas e Desporto lado a lado, alinhados com o texto */
+.org-layout{grid-template-columns:1fr!important;gap:30px!important}
+.org-layout>div:first-child{max-width:820px}
+.org-layout .formats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.org-layout .format-card{padding:0 0 28px}
+.org-layout .format-card>*:not(.card-photo){margin-left:28px;margin-right:28px}
+.org-layout .card-photo{margin:0 0 20px;aspect-ratio:16/9}
+@media(max-width:760px){.org-layout .formats-grid{grid-template-columns:1fr}.org-layout .format-card>*:not(.card-photo){margin-left:20px;margin-right:20px}}
