@@ -216,3 +216,6 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .diag-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
 .diag-inner p{max-width:560px}
 @media(max-width:760px){.diag-inner{grid-template-columns:1fr;gap:12px}}
+/* V7B — texto do corpo +2px (pedido do Domingos, 9 nov) */
+:root{--font-body:17.5px !important}
+.conclusion-paragraph{font-size:15.5px !important}
