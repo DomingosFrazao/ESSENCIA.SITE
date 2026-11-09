@@ -230,3 +230,4 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 /* V7B — tamanhos uniformes: corpo 17.5px, notas 15.5px */
 .format-card p{font-size:17.5px !important}
 .format-card .card-small,.card-small,.contact-collab{font-size:15.5px !important}
+@media(min-width:900px){.one-line{white-space:nowrap;max-width:none !important}}
