@@ -232,3 +232,15 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .format-card .card-small,.card-small,.contact-collab{font-size:15.5px !important}
 @media(min-width:900px){.one-line{white-space:nowrap;max-width:none !important}}
 .formacao-line{color:var(--muted,#626b64);font-style:italic;margin-top:4px}
+/* V7B — cabeçalho maior (x1,5) e rodapé com contactos em 2 colunas */
+.site-head{height:123px !important}
+.site-head .brand-logo{width:278px !important}
+.site-head .nav a{font-size:15px !important}
+.site-head .head-cta,.site-head .btn{font-size:15px !important;padding:15px 24px !important}
+@media(max-width:1020px){.site-head{height:92px !important}.site-head .brand-logo{width:220px !important}}
+@media(max-width:760px){.site-head{height:88px !important}.site-head .brand-logo{width:210px !important}}
+.footer-nav a,.footer-contact-links a{font-size:15px !important}
+.footer-contact-links{display:grid !important;grid-template-columns:repeat(2,max-content);column-gap:34px;row-gap:12px;align-items:start}
+.footer-contact-links>a:first-child{grid-column:1 / -1}
+@media(max-width:480px){.footer-contact-links{grid-template-columns:1fr 1fr;column-gap:16px}.footer-contact-links a{font-size:14px !important}}
+@media(max-width:480px){.footer-contact-links .lbl{font-size:0 !important}.footer-contact-links .lbl::after{content:attr(data-short);font-size:14px}.footer-top{gap:22px !important}}
