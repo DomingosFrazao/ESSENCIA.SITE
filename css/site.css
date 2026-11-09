@@ -270,3 +270,7 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .org-layout .format-card>*:not(.card-photo){margin-left:28px;margin-right:28px}
 .org-layout .card-photo{margin:0 0 20px;aspect-ratio:16/9}
 @media(max-width:760px){.org-layout .formats-grid{grid-template-columns:1fr}.org-layout .format-card>*:not(.card-photo){margin-left:20px;margin-right:20px}}
+/* v8: faixa de imagens com os mesmos limites e espaços dos cartões */
+.image-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important;width:auto!important;max-width:none!important}
+.image-strip .image-frame,.image-strip .image-frame:nth-child(2),.image-strip .image-frame:nth-child(3){aspect-ratio:auto!important;width:auto!important;min-width:0}
+@media(max-width:760px){.image-strip{gap:8px!important}}
