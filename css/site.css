@@ -291,3 +291,7 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .partner-card{background:transparent!important;border:0!important;padding:10px 0!important;min-height:0!important}
 .partner-mark{height:156px!important;width:156px!important;flex-basis:156px!important}
 @media(max-width:760px){.partner-mark{height:123px!important;width:123px!important;flex-basis:123px!important}}
+/* v8: rodapé — linha ao passar o rato; só links legais */
+.footer-nav a{text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .2s;padding-bottom:2px}
+.footer-nav a:hover,.footer-nav a:focus-visible{background-size:100% 1px}
+.footer-small .legal-links{margin-top:0}
