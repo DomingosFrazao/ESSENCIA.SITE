@@ -219,3 +219,6 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 /* V7B — texto do corpo +2px (pedido do Domingos, 9 nov) */
 :root{--font-body:17.5px !important}
 .conclusion-paragraph{font-size:15.5px !important}
+/* V7B — Como começar + contacto num só bloco */
+.contact-call{margin-top:26px;font-size:var(--font-body)}
+.contact-collab{margin-top:28px;font-size:14px;color:var(--muted,#626b64)}
