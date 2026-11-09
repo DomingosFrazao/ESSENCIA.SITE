@@ -244,3 +244,5 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .footer-contact-links>a:first-child{grid-column:1 / -1}
 @media(max-width:480px){.footer-contact-links{grid-template-columns:1fr 1fr;column-gap:16px}.footer-contact-links a{font-size:14px !important}}
 @media(max-width:480px){.footer-contact-links .lbl{font-size:0 !important}.footer-contact-links .lbl::after{content:attr(data-short);font-size:14px}.footer-top{gap:22px !important}}
+.legal-links a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:480px){.footer-contact-links .lbl::after{font-size:13px !important}.footer-contact-links a{font-size:13px !important}}
