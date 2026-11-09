@@ -259,8 +259,6 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .partner-mark img{object-fit:cover}
 .quote-cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:56px;align-items:center}
 .quote-photo{height:400px}.quote-photo img{object-position:center 62%}
-.essence-section:nth-of-type(2) .essence-img{height:520px}
-.essence-section:nth-of-type(3) .essence-img{height:330px;margin-top:40px}
 @media(max-width:760px){.quote-cols{grid-template-columns:1fr;gap:28px}.quote-photo{height:240px}.about-top .portrait-round{width:min(300px,80%)}.partner-mark{height:82px!important;width:82px!important;flex-basis:82px!important}.essence-section:nth-of-type(n) .essence-img{height:280px;margin-top:0}}
 /* v8: organizações — texto em cima, Empresas e Desporto lado a lado, alinhados com o texto */
 .org-layout{grid-template-columns:1fr!important;gap:30px!important}
@@ -286,3 +284,4 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .details .session-side img{position:static;height:100%!important;width:100%}
 }
 .card-photo img[src*="desporto"]{object-position:50% 66%!important}
+@media(min-width:761px){.essence-section{align-items:center!important}.essence-section>.essence-img{height:420px!important;align-self:center}}
