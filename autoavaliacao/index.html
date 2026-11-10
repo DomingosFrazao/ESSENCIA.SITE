@@ -117,7 +117,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 .leit .val{font-size:13px;color:var(--t2)}
 .seg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:10px 0 8px}
 .seg i{height:8px;border-radius:4px;background:var(--linha)}
-.seg i.on{background:var(--bege)}.seg i.on.baixo{background:var(--ambar)}
+.seg i.on:nth-child(1){background:#7D6650}.seg i.on:nth-child(2){background:#A8845A}.seg i.on:nth-child(3){background:#E0A75E}.seg i.on:nth-child(4){background:#D8D3B4}.seg i.on:nth-child(5){background:#F4F1EA}
 .leit p{font-size:14px;margin:0}
 .leit .det{font-size:12.5px;color:var(--t3);margin-top:6px}
 .passo{background:var(--bege);color:var(--fundo);border-radius:22px;padding:22px;margin:30px 0}
@@ -161,7 +161,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   #relatorio .tres b{font-family:"EB Garamond",serif;font-weight:400;font-size:15pt;display:block}
   #relatorio .rseg{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin:6px 0}
   #relatorio .rseg i{height:5px;border-radius:3px;background:#ECE7DC;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  #relatorio .rseg i.on{background:#1F3A34}#relatorio .rseg i.on.baixo{background:#E0A75E}
+  #relatorio .rseg i.on:nth-child(1){background:#E3C9A0}#relatorio .rseg i.on:nth-child(2){background:#E0A75E}#relatorio .rseg i.on:nth-child(3){background:#A98B5F}#relatorio .rseg i.on:nth-child(4){background:#6E8F86}#relatorio .rseg i.on:nth-child(5){background:#1F3A34}
   #relatorio .pq{grid-template-columns:repeat(3,1fr);display:grid;gap:10px}
   #relatorio .pq img{width:100%;border-radius:6px}
   #relatorio table{width:100%;border-collapse:collapse;font-size:9pt}
@@ -393,6 +393,7 @@ const N_CALMA = [null,
  ["Alguns sinais","Há dois sinais frequentes. Repara em que momentos do dia aparecem: muitas vezes coincidem com uma respiração mais rápida."],
  ["Poucos sinais","Só um sinal aparece com frequência. A tua respiração parece manter um ritmo calmo na maior parte do tempo."],
  ["Sem sinais claros","Nenhum sinal frequente. A tua respiração parece manter um ritmo calmo e regular. É uma boa base para praticar."]];
+const ampTxt=()=>`o tronco abre ${fmt(difCm)} cm (índice ${rom})`;
 const PADRAO = {vertical:"vertical",hibrida:"híbrida",horizontal:"horizontal"};
 /* Calma: 4 do rastreio de Kiesel (palavras nossas) + 3 inspiradas no SEBQ */
 const CALMA = [
@@ -415,7 +416,7 @@ const EX = {
 const CRED_IMG = "Imagem: Vranich et al. (2025), Frontiers in Physiology, CC BY 4.0";
 
 /* =================== ESTADO =================== */
-let obs={}, lom=null, rom=null, bolt=null, boltSaltado=false, cal={}, R=null;
+let obs={}, lom=null, rom=null, difCm=null, bolt=null, boltSaltado=false, cal={}, R=null;
 const $=id=>document.getElementById(id);
 (function(){const p=$('passos');for(let i=0;i<5;i++)p.appendChild(document.createElement('span'));})();
 function ir(n){
@@ -469,13 +470,13 @@ document.querySelectorAll('.tipo').forEach(b=>b.addEventListener('click',()=>esc
 function calcRom(){
   const ins=[],exs=[];
   for(let k=1;k<=3;k++){const i=num($('i'+k).value),x=num($('x'+k).value);if(i!==null&&x!==null){ins.push(i);exs.push(x);}}
-  const out=$('calc'); rom=null; $('b3').disabled=true;
+  const out=$('calc'); rom=null; difCm=null; $('b3').disabled=true;
   if(!ins.length){out.textContent='';return;}
   const mi=ins.reduce((s,v)=>s+v,0)/ins.length, me=exs.reduce((s,v)=>s+v,0)/exs.length;
   if(mi<=me){out.textContent='A medida a inspirar tem de ser maior do que a medida a expirar. Confirma os valores.';return;}
   if((mi-me)/me>0.35){out.textContent='A diferença parece muito grande. Confirma se a fita estava à mesma altura nas duas medidas.';return;}
-  rom=Math.round((mi-me)/me*1000);
-  out.innerHTML=`Média: inspiração <b>${fmt(mi)} cm</b>, expiração <b>${fmt(me)} cm</b>. Diferença: <b>${fmt(mi-me)} cm</b>.`;
+  rom=Math.round((mi-me)/me*1000); difCm=Math.round((mi-me)*10)/10;
+  out.innerHTML=`Média: inspiração <b>${fmt(mi)} cm</b>, expiração <b>${fmt(me)} cm</b>. Diferença: <b>${fmt(mi-me)} cm</b>. Índice de amplitude: <b>${Math.round((mi-me)/me*1000)}</b> (a diferença a dividir pela expiração, × 1000).`;
   $('b3').disabled=false;
 }
 document.querySelectorAll('.medidas input').forEach(i=>i.addEventListener('input',calcRom));
@@ -527,7 +528,7 @@ function resultado(){
   h+= nL ? `<div class="leit"><div class="topo"><span class="nome">Leve</span><span class="val">${N_LEVE[nL][0]} · BOLT ${bolt} s</span></div><div class="det" style="margin:0">Quanto ar respiras em repouso</div>${seg(nL)}<p>${N_LEVE[nL][1]}</p></div>`
          : `<div class="leit"><div class="topo"><span class="nome">Leve</span><span class="val">não medido</span></div><div class="det" style="margin:0">Quanto ar respiras em repouso</div>${seg(0)}<p>Faz o teste da pausa amanhã de manhã, ao acordar.</p></div>`;
   h+=`<div class="leit"><div class="topo"><span class="nome">Lenta</span><span class="val">${N_CALMA[nC][0]}</span></div><div class="det" style="margin:0">O ritmo e os sinais do dia a dia</div>${seg(nC)}<p>${N_CALMA[nC][1]}</p>${S.length?`<div class="det">Frequente: ${S.map(i=>CALMA[i].curto).join(', ')}.</div>`:''}</div>`;
-  h+=`<div class="leit" style="padding-bottom:0"><div class="topo"><span class="nome">Profunda</span><span class="val">${N_PROF[nP][0]}</span></div><div class="det" style="margin:0">Onde e quanto o corpo se mexe</div>${seg(nP)}<p>${N_PROF[nP][1]}</p><div class="det">Respiração ${PADRAO[lom]} · amplitude ${rom}</div></div>`;
+  h+=`<div class="leit" style="padding-bottom:0"><div class="topo"><span class="nome">Profunda</span><span class="val">${N_PROF[nP][0]}</span></div><div class="det" style="margin:0">Onde e quanto o corpo se mexe</div>${seg(nP)}<p>${N_PROF[nP][1]}</p><div class="det">Respiração ${PADRAO[lom]} · ${ampTxt()}</div></div>`;
   $('rLeit').innerHTML=h;
   /* o que isto quer dizer */
   const formas=[{k:'Profunda',n:nP,o:0},{k:'Leve',n:nL,o:1},{k:'Lenta',n:nC,o:2}].filter(f=>f.n!==null);
@@ -588,7 +589,7 @@ function historico(){
   R.anterior=ant;
   if(ant){
     const d=new Date(ant.data).toLocaleDateString('pt-PT',{day:'numeric',month:'long'});
-    let t=`Profunda <b>${N_PROF[ant.nP][0]}</b> → <b>${N_PROF[R.nP][0]}</b> · amplitude <b>${ant.rom}</b> → <b>${rom}</b><br>`;
+    let t=`Profunda <b>${N_PROF[ant.nP][0]}</b> → <b>${N_PROF[R.nP][0]}</b> · índice de amplitude <b>${ant.rom}</b> → <b>${rom}</b><br>`;
     t+=`Leve <b>${ant.bolt!=null?ant.bolt+' s':'não medido'}</b> → <b>${bolt!=null?bolt+' s':'não medido'}</b><br>Lenta <b>${N_CALMA[ant.nC][0]}</b> → <b>${N_CALMA[R.nC][0]}</b>`;
     $('rComp').innerHTML=`<div class="bloco comp"><h3>Em relação a ${d}</h3>${t}</div>`;
   } else $('rComp').innerHTML='';
@@ -606,14 +607,14 @@ function enviar(){
   const email=$('fEmail').value.trim(), tel=$('fTel').value.trim(), c1=!!email&&$('c1').checked, c2=!!email&&$('c2').checked, c3=!!tel&&$('c3').checked;
   if(!CONFIG.envioUrl||!(c1||c2||c3)) return;
   const dados={nome:R.nome,email:(c1||c2)?email:null,telemovel:c3?tel:null,pdf:c1,newsletter:c2,whatsapp:c3};
-  if(c1){dados.resultado={leve:R.nL?N_LEVE[R.nL][0]:null,bolt,lenta:N_CALMA[R.nC][0],profunda:N_PROF[R.nP][0],padrao:PADRAO[lom],amplitude:rom,primeiroPasso:EX[R.ordemEx[0].ex].n};dados.relatorioHtml=relatorioEmail();}
+  if(c1){dados.resultado={leve:R.nL?N_LEVE[R.nL][0]:null,bolt,lenta:N_CALMA[R.nC][0],profunda:N_PROF[R.nP][0],padrao:PADRAO[lom],amplitude:rom,aberturaCm:difCm,primeiroPasso:EX[R.ordemEx[0].ex].n};dados.relatorioHtml=relatorioEmail();}
   try{fetch(CONFIG.envioUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(dados)}).catch(()=>{});}catch(e){}
 }
 /* relatório simples (tabelas) para o PDF enviado por e-mail */
 function relatorioEmail(){
   const d=R.data.toLocaleDateString('pt-PT',{day:'numeric',month:'long',year:'numeric'});
   const e=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-  const barra=n=>{let s='';for(let i=1;i<=5;i++)s+=`<td style="width:18%;height:6px;background:${i<=n?(n<=2?'#E0A75E':'#1F3A34'):'#ECE7DC'}"></td><td style="width:2%"></td>`;return `<table style="width:100%;border-collapse:collapse;margin:4px 0 6px"><tr>${s}</tr></table>`;};
+  const barra=n=>{let s='';for(let i=1;i<=5;i++)s+=`<td style="width:18%;height:6px;background:${i<=n?['#E3C9A0','#E0A75E','#A98B5F','#6E8F86','#1F3A34'][i-1]:'#ECE7DC'}"></td><td style="width:2%"></td>`;return `<table style="width:100%;border-collapse:collapse;margin:4px 0 6px"><tr>${s}</tr></table>`;};
   const h4=t=>`<p style="font-size:9pt;letter-spacing:2px;text-transform:uppercase;color:#8A6F5A;margin:18px 0 6px">${t}</p>`;
   const leit=(nome,n,nivel,txt)=>`<td style="vertical-align:top;width:33%;padding:10px;border:1px solid #E3DED3"><div style="font-family:Georgia,serif;font-size:16pt">${nome}</div>${barra(n)}<b>${e(nivel)}</b><div style="font-size:9.5pt">${e(txt)}</div></td>`;
   const passos=R.ordemEx.map((o,i)=>{const x=EX[o.ex];return `<tr><td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #E3DED3;width:28%"><span style="font-size:8pt;color:#8A6F5A">${i+1} · ${o.forma.toUpperCase()}</span><br><b>${e(x.n)}</b></td><td style="padding:6px 8px;border-bottom:1px solid #E3DED3;font-size:10pt">${e(x.t)}</td></tr>`;}).join('');
@@ -624,7 +625,7 @@ function relatorioEmail(){
   <table style="width:100%;border-collapse:collapse"><tr>
   ${leit('Leve',R.nL||0,R.nL?N_LEVE[R.nL][0]+' · BOLT '+bolt+' s':'Não medido',R.nL?N_LEVE[R.nL][1]:'Faz o teste da pausa de manhã, ao acordar.')}
   ${leit('Lenta',R.nC,N_CALMA[R.nC][0],N_CALMA[R.nC][1]+(R.S.length?' Frequente: '+R.S.map(i=>CALMA[i].curto).join(', ')+'.':''))}
-  ${leit('Profunda',R.nP,N_PROF[R.nP][0],N_PROF[R.nP][1]+' Respiração '+PADRAO[lom]+', amplitude '+rom+'.')}
+  ${leit('Profunda',R.nP,N_PROF[R.nP][0],N_PROF[R.nP][1]+' Respiração '+PADRAO[lom]+', '+ampTxt()+'.')}
   </tr></table>
   ${h4('O que isto quer dizer')}<p>${R.quer}</p>
   ${h4('Os teus primeiros passos · 2 a 3 minutos por dia')}<table style="width:100%;border-collapse:collapse">${passos}</table>
@@ -652,7 +653,7 @@ function relatorio(){
   <div class="tres">
    <div><b>Leve</b>${rs(R.nL||0)}<div style="font-weight:600">${R.nL?N_LEVE[R.nL][0]+' · BOLT '+bolt+' s':'Não medido'}</div><div style="font-size:9pt">${R.nL?N_LEVE[R.nL][1]:'Faz o teste da pausa de manhã, ao acordar.'}</div></div>
    <div><b>Lenta</b>${rs(R.nC)}<div style="font-weight:600">${N_CALMA[R.nC][0]}</div><div style="font-size:9pt">${N_CALMA[R.nC][1]}${R.S.length?' Frequente: '+R.S.map(i=>CALMA[i].curto).join(', ')+'.':''}</div></div>
-   <div><b>Profunda</b>${rs(R.nP)}<div style="font-weight:600">${N_PROF[R.nP][0]}</div><div style="font-size:9pt">${N_PROF[R.nP][1]} Respiração ${PADRAO[lom]}, amplitude ${rom}.</div></div>
+   <div><b>Profunda</b>${rs(R.nP)}<div style="font-weight:600">${N_PROF[R.nP][0]}</div><div style="font-size:9pt">${N_PROF[R.nP][1]} Respiração ${PADRAO[lom]}, ${ampTxt()}.</div></div>
   </div>
   <h4>O que isto quer dizer</h4><p>${R.quer}</p>
   <h4>Os teus primeiros passos · 2 a 3 minutos por dia</h4><div class="pq">${passos}</div>
@@ -670,7 +671,7 @@ function guardarRelatorio(){
   $('a6').textContent='Se a janela de impressão não abrir, usa "Copiar resumo". No site, este botão abre a opção de guardar em PDF.';
 }
 function copiar(btn){
-  const t=`Autoavaliação da Respiração · ESSEN.CIA · ${R.nome}\nData: ${R.data.toLocaleDateString('pt-PT')}\nLeve: ${R.nL?N_LEVE[R.nL][0]+' (BOLT '+bolt+' s)':'não medido'}\nLenta: ${N_CALMA[R.nC][0]}\nProfunda: ${N_PROF[R.nP][0]} (respiração ${PADRAO[lom]}, amplitude ${rom})\nPrimeiro passo: ${EX[R.ordemEx[0].ex].n}`;
+  const t=`Autoavaliação da Respiração · ESSEN.CIA · ${R.nome}\nData: ${R.data.toLocaleDateString('pt-PT')}\nLeve: ${R.nL?N_LEVE[R.nL][0]+' (BOLT '+bolt+' s)':'não medido'}\nLenta: ${N_CALMA[R.nC][0]}\nProfunda: ${N_PROF[R.nP][0]} (respiração ${PADRAO[lom]}, ${ampTxt()})\nPrimeiro passo: ${EX[R.ordemEx[0].ex].n}`;
   try{navigator.clipboard.writeText(t).then(()=>{btn.textContent='Copiado';setTimeout(()=>btn.textContent='Copiar resumo',1800);}).catch(()=>{});}catch(e){}
 }
 </script>
