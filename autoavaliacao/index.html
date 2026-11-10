@@ -263,7 +263,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <div class="sobre">Profunda · 3 de 3</div>
   <h2>Onde se move a tua respiração?</h2>
   <div class="ref">Este passo e o seguinte seguem o método Breathing IQ, descrito pela Dra. Belisa Vranich e colegas na revista Frontiers in Physiology (2025). Tem em atenção dois aspetos: onde o corpo se move quando respiras e a amplitude desses movimentos.
-    <details><summary>Ver referência completa</summary><p>Vranich B, Lee R, Zapanta J, Shoen B, Houghton H, Ruelas C, Wahlfeldt ML, Kerr R, Pripotnev A, Goorahoo M, Baptiste J-B, Elliot J. The Breathing IQ: an anthropometric index of diaphragmatic breathing efficiency. Frontiers in Physiology, 2025; 15:1394109. <a href="https://doi.org/10.3389/fphys.2024.1394109" target="_blank" rel="noopener">doi:10.3389/fphys.2024.1394109</a>. Estudo preliminar, sem grupo de controlo: em 384 pessoas, uma sessão de 90 minutos com cinco exercícios melhorou o resultado em quase 9 em cada 10. A classificação por níveis desta app é uma adaptação da ESSEN.CIA.</p></details>
+    <details><summary>Ver referência completa</summary><p>Vranich B, Lee R, Zapanta J, Shoen B, Houghton H, Ruelas C, Wahlfeldt ML, Kerr R, Pripotnev A, Goorahoo M, Baptiste J-B, Elliot J. The Breathing IQ: an anthropometric index of diaphragmatic breathing efficiency. Frontiers in Physiology, 2025; 15:1394109. <a href="https://doi.org/10.3389/fphys.2024.1394109" target="_blank" rel="noopener">doi:10.3389/fphys.2024.1394109</a>. Estudo preliminar, sem grupo de controlo: em 384 pessoas, logo a seguir a uma sessão de 90 minutos com cinco exercícios, quase 9 em cada 10 pessoas melhoraram o resultado. A autora principal fundou uma empresa que oferece formação sobre o método. A classificação por níveis desta app é uma adaptação da ESSEN.CIA.</p></details>
   </div>
   <div class="porque"><b>Porque importa.</b> O diafragma é o principal músculo da respiração. Quando o pescoço e os ombros fazem esse trabalho, cansam-se e a respiração tende a ficar mais alta e mais rápida.</div>
   <div class="bloco"><ol class="num">
@@ -376,7 +376,7 @@ const IMG = {"1-bascula": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVwAAAC
 
 /* =================== TEXTOS =================== */
 const N_PROF = [null,
- ["Respiração alta e curta","O movimento está sobretudo no peito e nos ombros e o tronco abre pouco. É o ponto de partida mais comum: no estudo original, cerca de 2 em cada 3 pessoas começaram aqui, e a maioria melhorou depois de uma única sessão de exercícios."],
+ ["Respiração alta e curta","O movimento está sobretudo no peito e nos ombros e o tronco abre pouco. É o ponto de partida mais comum: no estudo original, cerca de 2 em cada 3 pessoas começaram aqui, e a maioria melhorou logo a seguir a uma sessão de exercícios."],
  ["Respiração alta","Grande parte do movimento está no peito e nos ombros. Estes músculos ajudam, mas não estão feitos para o trabalho de todas as respirações e cansam-se. O primeiro passo é levar o movimento para baixo."],
  ["A meio caminho","O diafragma já participa, mas o peito ainda faz parte do trabalho, ou o tronco abre pouco. Com prática, o movimento pode descer e ganhar amplitude."],
  ["Boa base","A parte de baixo do tronco já trabalha. Há espaço para ganhar amplitude ou para tirar o resto do movimento do peito."],
@@ -538,7 +538,7 @@ function resultado(){
   R.quer=['Em repouso, uma boa respiração faz-se pelo nariz e é <b>Leve</b>, <b>Lenta</b> e <b>Profunda</b>: entra só o ar de que precisas, sem esforço nem ruído, num ritmo calmo, com o movimento a partir do diafragma e não dos ombros. As três estão ligadas. Quando a respiração desce para o diafragma, costuma ficar mais lenta, e uma respiração lenta e pelo nariz leva menos ar a mais. Por isso, trabalhar uma ajuda as outras.',
     iguais?'As três leituras estão ao mesmo nível.':`A tua base mais forte é a ${porBase[0].k}.`,
     margemTxt[porMargem[0].k],
-    'No estudo do Breathing IQ, uma única sessão de exercícios melhorou o resultado na maioria das pessoas. Pratica e volta a medir daqui a 2 a 4 semanas.'].join(' ');
+    'No estudo do Breathing IQ, logo a seguir a uma sessão de exercícios, a maioria das pessoas melhorou o resultado. O estudo não mediu se a melhoria se mantém, por isso o que conta é a prática: pratica e volta a medir daqui a 2 a 4 semanas.'].join(' ');
   $('rQuer').innerHTML=R.quer;
   /* exercícios */
   let prof = lom==='vertical'?['barriga','bascula']:lom==='hibrida'?['bascula','costelas']:(rom>=100?['gato','rotacao']:['gato']);
