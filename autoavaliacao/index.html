@@ -364,7 +364,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 const CONFIG = {
   ctaUrl: "https://essenciabreath.com/#contacto",
   privacidadeUrl: "https://essenciabreath.com/avisos-legais/#privacidade",
-  envioUrl: "",                         // endpoint para PDF e mailing list (Brevo/Apps Script); vazio = não envia
+  envioUrl: "https://script.google.com/macros/s/AKfycbxU8fB2tfwJeUnbzvONEWhvnokveczOrRVeeoN3G63mB3ZiADAjIBo_3kpQAYnO4YTRgQ/exec",                         // endpoint para PDF e mailing list (Brevo/Apps Script); vazio = não envia
   limitesROM: [80, 100],               // grelha oficial Breathing IQ: <80 | 80–99 | 100+
   grelha: { vertical:[1,2,3], hibrida:[2,"split",4], horizontal:[3,4,5] },  // F=1 D=2 C=3 B=4 A=5
   splitROM: 90,
@@ -605,8 +605,39 @@ ultima();
 function enviar(){
   const email=$('fEmail').value.trim(), tel=$('fTel').value.trim(), c1=!!email&&$('c1').checked, c2=!!email&&$('c2').checked, c3=!!tel&&$('c3').checked;
   if(!CONFIG.envioUrl||!(c1||c2||c3)) return;
-  try{fetch(CONFIG.envioUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nome:R.nome,email:(c1||c2)?email:null,telemovel:c3?tel:null,pdf:c1,newsletter:c2,whatsapp:c3,
-    resultado:c1?{profunda:N_PROF[R.nP][0],padrao:lom,amplitude:rom,leve:R.nL?N_LEVE[R.nL][0]:null,bolt,calma:N_CALMA[R.nC][0]}:null})}).catch(()=>{});}catch(e){}
+  const dados={nome:R.nome,email:(c1||c2)?email:null,telemovel:c3?tel:null,pdf:c1,newsletter:c2,whatsapp:c3};
+  if(c1){dados.resultado={leve:R.nL?N_LEVE[R.nL][0]:null,bolt,lenta:N_CALMA[R.nC][0],profunda:N_PROF[R.nP][0],padrao:PADRAO[lom],amplitude:rom,primeiroPasso:EX[R.ordemEx[0].ex].n};dados.relatorioHtml=relatorioEmail();}
+  try{fetch(CONFIG.envioUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(dados)}).catch(()=>{});}catch(e){}
+}
+/* relatório simples (tabelas) para o PDF enviado por e-mail */
+function relatorioEmail(){
+  const d=R.data.toLocaleDateString('pt-PT',{day:'numeric',month:'long',year:'numeric'});
+  const e=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const barra=n=>{let s='';for(let i=1;i<=5;i++)s+=`<td style="width:18%;height:6px;background:${i<=n?(n<=2?'#E0A75E':'#1F3A34'):'#ECE7DC'}"></td><td style="width:2%"></td>`;return `<table style="width:100%;border-collapse:collapse;margin:4px 0 6px"><tr>${s}</tr></table>`;};
+  const h4=t=>`<p style="font-size:9pt;letter-spacing:2px;text-transform:uppercase;color:#8A6F5A;margin:18px 0 6px">${t}</p>`;
+  const leit=(nome,n,nivel,txt)=>`<td style="vertical-align:top;width:33%;padding:10px;border:1px solid #E3DED3"><div style="font-family:Georgia,serif;font-size:16pt">${nome}</div>${barra(n)}<b>${e(nivel)}</b><div style="font-size:9.5pt">${e(txt)}</div></td>`;
+  const passos=R.ordemEx.map((o,i)=>{const x=EX[o.ex];return `<tr><td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #E3DED3;width:28%"><span style="font-size:8pt;color:#8A6F5A">${i+1} · ${o.forma.toUpperCase()}</span><br><b>${e(x.n)}</b></td><td style="padding:6px 8px;border-bottom:1px solid #E3DED3;font-size:10pt">${e(x.t)}</td></tr>`;}).join('');
+  return `<html><head><meta charset="utf-8"></head><body style="font-family:Arial,sans-serif;font-size:10.5pt;line-height:1.5;color:#1F3A34">
+  <table style="width:100%;background:#1F3A34;color:#F4F1EA"><tr><td style="padding:14px 18px"><div style="letter-spacing:3px">ESSEN.CIA</div><div style="font-family:Georgia,serif;font-size:20pt">Autoavaliação da Respiração</div></td><td style="padding:14px 18px;text-align:right"><b>${e(R.nome)}</b><br>${d}</td></tr></table>
+  <p style="background:#F4F1EA;padding:10px 14px">${e($('rAbre').textContent)}${R.cuidado?' Alguns dos sinais que descreveste podem ter outras causas. Antes de mais, vale a pena falares com o teu médico.':''}</p>
+  ${h4('Leve, lenta e profunda')}
+  <table style="width:100%;border-collapse:collapse"><tr>
+  ${leit('Leve',R.nL||0,R.nL?N_LEVE[R.nL][0]+' · BOLT '+bolt+' s':'Não medido',R.nL?N_LEVE[R.nL][1]:'Faz o teste da pausa de manhã, ao acordar.')}
+  ${leit('Lenta',R.nC,N_CALMA[R.nC][0],N_CALMA[R.nC][1]+(R.S.length?' Frequente: '+R.S.map(i=>CALMA[i].curto).join(', ')+'.':''))}
+  ${leit('Profunda',R.nP,N_PROF[R.nP][0],N_PROF[R.nP][1]+' Respiração '+PADRAO[lom]+', amplitude '+rom+'.')}
+  </tr></table>
+  ${h4('O que isto quer dizer')}<p>${R.quer}</p>
+  ${h4('Os teus primeiros passos · 2 a 3 minutos por dia')}<table style="width:100%;border-collapse:collapse">${passos}</table>
+  ${h4('Para ti')}${R.temas.map(x=>`<p><b>${e(x.t)}.</b> ${e(x.p||x.c)}</p>`).join('')}
+  ${h4('Regista a tua evolução')}
+  <table style="width:100%;border-collapse:collapse;font-size:9.5pt"><tr><th style="border:1px solid #E3DED3;padding:5px;text-align:left">Data</th><th style="border:1px solid #E3DED3;padding:5px;text-align:left">Leve (BOLT)</th><th style="border:1px solid #E3DED3;padding:5px;text-align:left">Lenta</th><th style="border:1px solid #E3DED3;padding:5px;text-align:left">Profunda</th></tr>
+  <tr><td style="border:1px solid #E3DED3;padding:5px">${R.data.toLocaleDateString('pt-PT')}</td><td style="border:1px solid #E3DED3;padding:5px">${bolt!=null?bolt+' s':'–'}</td><td style="border:1px solid #E3DED3;padding:5px">${N_CALMA[R.nC][0]}</td><td style="border:1px solid #E3DED3;padding:5px">${N_PROF[R.nP][0]}</td></tr>
+  <tr><td style="border:1px solid #E3DED3;padding:9px"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td></tr>
+  <tr><td style="border:1px solid #E3DED3;padding:9px"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td></tr></table>
+  <p style="font-size:9pt">Volta a fazer a autoavaliação de manhã, daqui a 2 a 4 semanas, e escreve aqui os novos valores.</p>
+  ${h4('O próximo passo é teu')}<p>Agendar conversa gratuita de cerca de 30 minutos: ${CONFIG.ctaUrl}</p>
+  <p style="font-size:8pt;color:#5A6B66;margin-top:16px">Autoavaliação, não diagnóstico. Se tens sintomas frequentes ou novos, fala com o teu médico. Fontes: Vranich et al., Frontiers in Physiology, 2025 (Breathing IQ); Kiesel et al., International Journal of Sports Physical Therapy, 2017; McKeown, Oxygen Advantage (BOLT). Classificação por níveis e textos: ESSEN.CIA.</p>
+  </body></html>`;
 }
 
 /* ---- relatório para imprimir / PDF ---- */
