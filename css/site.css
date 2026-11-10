@@ -301,3 +301,16 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .self-check-icon{flex:0 0 54px;height:54px;border-radius:50%;background:#e4e8df;color:#4f6150;display:flex;align-items:center;justify-content:center}
 .self-check-body p{margin:0 0 16px}
 @media(max-width:760px){.self-check{flex-direction:column;gap:14px;padding:22px 20px!important}.self-check .btn{width:100%;justify-content:center}}
+
+/* v9: autoavaliação, portas no telemóvel, fotos */
+.door-photo{display:none}
+@media(max-width:760px){.door-grid .door-photo{display:block;height:200px;margin:-24px -24px 20px;border-radius:0}.door-grid .door-photo img{filter:saturate(.79) contrast(.96)}.door-grid + .image-strip{display:none!important}}
+.session-side img{object-position:center 78%}
+.self-check{background:#171d1b!important;color:#f4f1ea;border:none!important;border-top:3px solid #E0A75E!important}
+.self-check p,.self-check strong{color:#f4f1ea}
+.self-check-title{font-size:1.15rem;margin-bottom:6px!important}
+.self-check-icon{background:rgba(244,241,234,.12)!important;color:#f4f1ea!important}
+.self-check .btn{background:#f4f1ea;color:#171d1b;border-color:#f4f1ea}
+.self-check .btn:hover{background:#E0A75E;border-color:#E0A75E;color:#171d1b}
+.essence-img img[src*="explorar-2"]{object-position:35% center}
+@media(max-width:760px){.self-check-icon{width:54px;flex:0 0 54px}}
