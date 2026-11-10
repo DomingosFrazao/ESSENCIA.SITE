@@ -314,3 +314,4 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .self-check .btn:hover{background:#E0A75E;border-color:#E0A75E;color:#171d1b}
 .essence-img img[src*="explorar-2"]{object-position:35% center}
 @media(max-width:760px){.self-check-icon{width:54px;flex:0 0 54px}}
+.essence-img img[src*="sentir-2"]{object-position:55% 40%}
