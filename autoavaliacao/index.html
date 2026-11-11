@@ -188,15 +188,15 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <h1 style="text-align:center">Como estás a respirar?</h1>
   <p style="text-align:center">Respirar fundo não é o mesmo que respirar bem.</p>
   <div class="bloco">
-    <h3>Leve, lenta e profunda · cerca de 10 minutos</h3>
-    <p style="font-size:14px">Em repouso, uma boa respiração faz-se pelo nariz e é <b style="color:var(--bege)">Leve</b>, <b style="color:var(--bege)">Lenta</b> e <b style="color:var(--bege)">Profunda</b>: entra só o ar de que precisas, sem esforço nem ruído, num ritmo calmo, com o movimento a partir do diafragma e não dos ombros. Esta é uma descrição com base no método Oxygen Advantage, um dos pilares da ESSEN.CIA. Medimos cada parte de forma diferente.</p>
+    <h3>Leve, lenta e profunda</h3>
+    <p style="font-size:14px">Em repouso, uma boa respiração faz-se preferencialmente pelo nariz e é <b style="color:var(--bege)">Leve</b>, <b style="color:var(--bege)">Lenta</b> e <b style="color:var(--bege)">Profunda</b>: entra só o ar de que precisas, sem esforço nem ruído, num ritmo calmo, com o movimento a partir do diafragma e não dos ombros. Esta é uma descrição com base no método Oxygen Advantage, um dos pilares da ESSEN.CIA.</p>
     <ol class="num">
       <li><b style="color:var(--bege);font-weight:500">Leve.</b> Entra só o ar de que precisas, sem esforço nem ruído. Medimos com uma pausa depois de expirar.</li>
       <li><b style="color:var(--bege);font-weight:500">Lenta.</b> O ritmo é lento e regular. Vemos pelos sinais que notas no dia a dia.</li>
       <li><b style="color:var(--bege);font-weight:500">Profunda.</b> O movimento parte do diafragma, em baixo, e não dos ombros. Medimos com o espelho e a fita.</li>
     </ol>
     </div>
-  <div class="material"><b>Vais precisar de:</b> uma fita métrica de costura, um espelho e roupa justa.</div>
+  <div class="material"><b>Vais precisar de:</b> 5 a 10 minutos, uma fita métrica de costura, um espelho e roupa justa.</div>
   <div class="nota peq">Isto é uma autoavaliação, não um diagnóstico. Se tens dor no peito, tonturas, doença respiratória ou cardíaca, ou estás grávida, fala primeiro com um profissional de saúde. Se sentires desconforto em algum passo, para.</div>
   <div id="ultima"></div>
   <div class="botoes"><button class="prim cheio" onclick="ir(1)">Começar</button></div>
@@ -214,11 +214,11 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <div class="campo"><label for="fPeso">Peso</label><div class="barra"><input type="range" id="fPeso" min="40" max="150" value="70"><output id="oPeso">70 kg</output></div></div>
   <p style="font-size:12.5px">A idade, o sexo, a altura e o peso não ficam gravados nem são enviados. Servem para enquadrar o relatório e só aparecem no teu relatório.</p>
   <div class="campo"><label for="fEmail">E-mail <small>(opcional, para receberes o relatório em PDF)</small></label><input type="email" id="fEmail" name="email" autocomplete="email" inputmode="email"></div>
-  <div class="campo"><label for="fTel">Telemóvel <small>(opcional, para grupos de WhatsApp)</small></label><input type="tel" id="fTel" name="tel" autocomplete="tel" inputmode="tel"></div>
+  <div class="campo"><label for="fTel">Telemóvel <small>(opcional)</small></label><input type="tel" id="fTel" name="tel" autocomplete="tel" inputmode="tel"></div>
   <div id="consents" style="display:none">
     <label class="consent" id="lc1"><input type="checkbox" id="c1"> Quero receber o meu relatório em PDF por e-mail. Aceito que a ESSEN.CIA use o meu nome e e-mail para isso.</label>
-    <label class="consent" id="lc2"><input type="checkbox" id="c2"> Quero receber, de vez em quando, conteúdos sobre respiração da ESSEN.CIA. Posso sair quando quiser.</label>
-    <label class="consent" id="lc3"><input type="checkbox" id="c3"> Quero receber convites para grupos de WhatsApp da ESSEN.CIA. Aceito que usem o meu telemóvel só para isso. Posso sair quando quiser.</label>
+    <label class="consent" id="lc2"><input type="checkbox" id="c2"> Quero receber, de vez em quando, conteúdos sobre respiração da ESSEN.CIA, por e-mail ou telefone. Posso sair quando quiser.</label>
+    
   </div>
   </form>
   <p style="font-size:12.5px;margin-top:18px">As tuas respostas e medições ficam guardadas só neste navegador. Se deixares o e-mail ou o telemóvel, guardamos apenas o nome, esses contactos e as tuas escolhas acima. Podes pedir para os apagar a qualquer momento.<br><a href="#" id="privLink" target="_blank" rel="noopener" style="color:var(--ambar)">Política de privacidade</a></p>
@@ -246,7 +246,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 <section class="ecra" id="e2">
   <div class="sobre">Leve · 1 de 3</div>
   <h2>Quanto tempo aguentas sem vontade de respirar?</h2>
-  <div class="ref">Este teste chama-se BOLT e vem do método Oxygen Advantage, de Patrick McKeown. Segundo o método, este teste dá uma ideia da tolerância do teu corpo ao dióxido de carbono em repouso.
+  <div class="ref">O BOLT (Body Oxygen Level Test) é um teste usado no método Oxygen Advantage, de Patrick McKeown. Em repouso, conta quantos segundos passam entre uma expiração normal e a primeira vontade clara de voltar a inspirar. O método usa esse tempo como uma indicação indireta da tolerância ao dióxido de carbono (CO₂).
     <details><summary>Ver referência completa</summary><p>McKeown P. The Oxygen Advantage, 2015; The Breathing Cure, 2021. Teste BOLT (Body Oxygen Level Test). O limite de 25 segundos vem de Kiesel K. et al., International Journal of Sports Physical Therapy, 2017; 12(5):774–786.</p></details>
   </div>
   <div class="porque"><b>Porque começamos aqui.</b> As respirações grandes do teste da fita alteram este resultado, por isso a pausa vem primeiro, com o corpo em repouso.<br><b>Porque importa.</b> Segundo o método, quem respira ar a mais em repouso tolera pior o dióxido de carbono e sente vontade de respirar mais cedo, com as implicações que isso traz ao organismo e ao sistema nervoso.</div>
@@ -257,7 +257,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
     <li>Carrega em Parar ao primeiro sinal claro de vontade de respirar: engolir, um aperto na garganta, a barriga a mexer.</li>
     <li>Solta o nariz e volta a respirar pelo nariz, com calma.</li>
   </ol></div>
-  <div class="nota"><b>Este não é um teste de resistência.</b> Se depois do teste precisares de respirar fundo, é porque aguentaste tempo demais. Repete com menos tempo.</div>
+  <div class="nota"><b>Este não é um teste de resistência.</b> Volta a respirar assim que sentires a primeira vontade clara de inspirar. A primeira inspiração deve ser tranquila. Se precisares de inspirar fundo, mantiveste a pausa demasiado tempo. Espera até a respiração voltar ao normal e, quando repetires o teste, termina a pausa mais cedo.</div>
   <p style="font-size:13px">Para comparar ao longo do tempo, o ideal é medir de manhã, logo ao acordar.</p>
   <div class="crono">
     <div class="anel"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="none" stroke="rgba(244,241,234,.14)" stroke-width="10"/><circle id="arco" cx="100" cy="100" r="88" fill="none" stroke="#E0A75E" stroke-width="10" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="552.9"/></svg><div class="num" id="tempo">0<small>s</small></div></div>
@@ -270,11 +270,11 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 <!-- 3 · CALMA -->
 <section class="ecra" id="e3">
   <div class="sobre">Lenta · 2 de 3</div>
-  <h2>Com que frequência te acontece?</h2>
-  <div class="porque"><b>Porque importa.</b> Quando a respiração fica rápida e alta, costuma vir com sinais como tensão, bocejos ou mãos frias. Estes sinais ajudam a perceber se a tua respiração está lenta e regular.</div>
-  <p>Pensa nas últimas duas semanas. Não há respostas certas.</p>
+  <h2>Com que frequência notas estes sinais?</h2>
+  <div class="porque"><b>Porque importa.</b> Quando respiras mais depressa ou sentes o movimento da respiração sobretudo na parte de cima do peito, podes notar tensão, bocejos ou mãos frias. Reparar em quando estes sinais aparecem ajuda-te a conhecer melhor o teu padrão respiratório.</div>
+  <p>Pensa nas últimas duas semanas e escolhe a resposta que melhor descreve a tua experiência. Não há respostas certas ou erradas.</p>
   <div class="bloco" id="calma"></div>
-  <p class="rodape">As quatro primeiras perguntas seguem o rastreio de Kiesel et al. (2017); as três últimas são inspiradas no Self Evaluation of Breathing Questionnaire (Courtney et al.). Todas seguem o entendimento da ESSEN.CIA sobre os respetivos métodos.</p>
+  <p class="rodape">As primeiras quatro perguntas baseiam-se no protocolo de rastreio de Kiesel et al. (2017). As últimas três inspiram-se no Self Evaluation of Breathing Questionnaire, de Courtney et al. A formulação das sete perguntas reflete a interpretação destas referências pela ESSEN.CIA.</p>
   <div class="aviso" id="a5"></div>
   <div class="botoes"><button onclick="ir(2)">Voltar</button><button class="prim" id="b5" onclick="seguirCalma()">Continuar</button></div>
 </section>
@@ -283,7 +283,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 <section class="ecra" id="e4">
   <div class="sobre">Profunda · 3 de 3</div>
   <h2>Onde se move a tua respiração?</h2>
-  <div class="ref">Este passo e o seguinte seguem o método Breathing IQ, descrito pela Dra. Belisa Vranich e colegas na revista Frontiers in Physiology (2025). Tem em atenção dois aspetos: onde o corpo se move quando respiras e a amplitude desses movimentos.
+  <div class="ref">Neste passo e no seguinte, vais observar duas coisas: que zonas do corpo se movem quando respiras e quanto se movem. Ambos os passos seguem o método Breathing IQ, descrito pela Dra. Belisa Vranich e colegas na revista Frontiers in Physiology (2025).
     <details><summary>Ver referência completa</summary><p>Vranich B, Lee R, Zapanta J, Shoen B, Houghton H, Ruelas C, Wahlfeldt ML, Kerr R, Pripotnev A, Goorahoo M, Baptiste J-B, Elliot J. The Breathing IQ: an anthropometric index of diaphragmatic breathing efficiency. Frontiers in Physiology, 2025; 15:1394109. <a href="https://doi.org/10.3389/fphys.2024.1394109" target="_blank" rel="noopener">doi:10.3389/fphys.2024.1394109</a>. Estudo preliminar, sem grupo de controlo: em 384 pessoas, logo a seguir a uma sessão de 90 minutos com cinco exercícios, quase 9 em cada 10 pessoas melhoraram o resultado. A autora principal fundou uma empresa que oferece formação sobre o método. A classificação por níveis desta app é uma adaptação da ESSEN.CIA.</p></details>
   </div>
   <div class="porque"><b>Porque importa.</b> O diafragma é o principal músculo da respiração. Quando o pescoço e os ombros fazem esse trabalho, cansam-se e a respiração tende a ficar mais alta e mais rápida.</div>
@@ -364,8 +364,8 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <h3 style="margin-top:30px">Os outros exercícios</h3>
   <div id="rEx"></div>
   <h2 style="margin-top:40px">O próximo passo é teu.</h2>
-  <p>Esta leitura é um ponto de partida. Numa conversa gratuita de cerca de 30 minutos, olhamos para ela contigo e vemos o que faz sentido trabalhar.</p>
-  <a class="btn ambar cheio" id="cta" href="#" target="_blank" rel="noopener">Agendar conversa gratuita</a>
+  <p>Esta leitura é um ponto de partida. No site encontras as sessões e o que fazemos na ESSEN.CIA, e, se quiseres, a forma de marcar uma conversa gratuita.</p>
+  <a class="btn ambar cheio" id="cta" href="#" rel="noopener">Voltar ao site</a>
   <p style="font-size:13.5px;margin-top:22px">Repete esta avaliação de manhã, daqui a 2 a 4 semanas. O resultado fica guardado neste navegador para poderes comparar.</p>
   <div class="botoes">
     <button onclick="guardarRelatorio()">Guardar relatório (PDF)</button>
@@ -383,7 +383,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 <script>
 /* =================== CONFIGURAÇÃO (editável) =================== */
 const CONFIG = {
-  ctaUrl: "https://essenciabreath.com/#contacto",
+  ctaUrl: "https://essenciabreath.com/",
   privacidadeUrl: "https://essenciabreath.com/avisos-legais/#privacidade",
   envioUrl: "https://script.google.com/macros/s/AKfycbxU8fB2tfwJeUnbzvONEWhvnokveczOrRVeeoN3G63mB3ZiADAjIBo_3kpQAYnO4YTRgQ/exec",                         // endpoint para PDF e mailing list (Brevo/Apps Script); vazio = não envia
   limitesROM: [80, 100],               // grelha oficial Breathing IQ: <80 | 80–99 | 100+
@@ -455,20 +455,19 @@ function fmt(x){return (Math.round(x*10)/10).toString().replace('.',',');}
 function valida1(){
   const nome=$('fNome').value.trim(), email=$('fEmail').value.trim(), tel=$('fTel').value.trim();
   $('consents').style.display=(email||tel)?'block':'none';
-  $('lc1').style.display=$('lc2').style.display=email?'flex':'none';
-  $('lc3').style.display=tel?'flex':'none';
+  $('lc1').style.display=email?'flex':'none';
+  $('lc2').style.display=(email||tel)?'flex':'none';
   let ok=nome.length>0, msg='';
   if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ok=false;msg='Este e-mail parece incompleto.';}
   else if(tel && tel.replace(/\D/g,'').length<9){ok=false;msg='Este número parece incompleto.';}
   else if(email && !$('c1').checked && !$('c2').checked){msg='Para receberes o PDF, marca a primeira caixa.';}
-  else if(tel && !$('c3').checked){msg='Para receberes convites de WhatsApp, marca a caixa do telemóvel.';}
   $('a1').textContent=msg; $('b1').disabled=!ok;
 }
 ['fNome','fEmail','fTel'].forEach(i=>{$(i).addEventListener('input',valida1);$(i).addEventListener('change',valida1);});
 [['fIdade','oIdade',''],['fAltura','oAltura',' cm'],['fPeso','oPeso',' kg']].forEach(([i,o,u])=>$(i).addEventListener('input',()=>{$(o).textContent=$(i).value+u;}));
 let sexo='';
 $('fSexo').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{$('fSexo').querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sexo=b.dataset.v;}));
-function perfilTxt(){return [$('fIdade').value+' anos',sexo,$('fAltura').value+' cm',$('fPeso').value+' kg'].filter(Boolean).join(' · ');}['c1','c2','c3'].forEach(i=>$(i).addEventListener('change',valida1));
+function perfilTxt(){return [$('fIdade').value+' anos',sexo,$('fAltura').value+' cm',$('fPeso').value+' kg'].filter(Boolean).join(' · ');}['c1','c2'].forEach(i=>$(i).addEventListener('change',valida1));
 $('privLink').href=CONFIG.privacidadeUrl;
 
 /* ---- Profunda: observação ---- */
@@ -568,7 +567,7 @@ function resultado(){
   const porMargem=[...formas].sort((a,b)=>a.n-b.n||a.o-b.o), porBase=[...formas].sort((a,b)=>b.n-a.n||a.o-b.o);
   const iguais=formas.every(f=>f.n===formas[0].n);
   const margemTxt={Leve:'Onde tens mais margem é na Leve: respirar pelo nariz e com menos volume em repouso.',Lenta:'Onde tens mais margem é na Lenta: abrandar o ritmo e alongar a expiração nos momentos de mais tensão.',Profunda:lom==='horizontal'?'Onde tens mais margem é na Profunda: o movimento já parte de baixo, agora é ganhar amplitude nas costelas e nas costas.':'Onde tens mais margem é na Profunda: levar o movimento do peito para a barriga e para as costelas de baixo.'};
-  R.quer=['Em repouso, uma boa respiração faz-se pelo nariz e é <b>Leve</b>, <b>Lenta</b> e <b>Profunda</b>: entra só o ar de que precisas, sem esforço nem ruído, num ritmo calmo, com o movimento a partir do diafragma e não dos ombros. As três estão ligadas. Quando a respiração desce para o diafragma, costuma ficar mais lenta, e uma respiração lenta e pelo nariz leva menos ar a mais. Por isso, trabalhar uma ajuda as outras.',
+  R.quer=['Em repouso, uma boa respiração faz-se preferencialmente pelo nariz e é <b>Leve</b>, <b>Lenta</b> e <b>Profunda</b>: entra só o ar de que precisas, sem esforço nem ruído, num ritmo calmo, com o movimento a partir do diafragma e não dos ombros. As três estão ligadas. Quando a respiração desce para o diafragma, costuma ficar mais lenta, e uma respiração lenta e pelo nariz leva menos ar a mais. Por isso, trabalhar uma ajuda as outras.',
     iguais?'As três leituras estão ao mesmo nível.':`A tua base mais forte é a ${porBase[0].k}.`,
     margemTxt[porMargem[0].k],
     'No estudo do Breathing IQ, logo a seguir a uma sessão de exercícios, a maioria das pessoas melhorou o resultado. O estudo não mediu se a melhoria se mantém, por isso o que conta é a prática: pratica e volta a medir daqui a 2 a 4 semanas.'].join(' ');
@@ -637,9 +636,9 @@ ultima();
 
 /* ---- envio (ativa quando CONFIG.envioUrl estiver definido) ---- */
 function enviar(){
-  const email=$('fEmail').value.trim(), tel=$('fTel').value.trim(), c1=!!email&&$('c1').checked, c2=!!email&&$('c2').checked, c3=!!tel&&$('c3').checked;
-  if(!CONFIG.envioUrl||!(c1||c2||c3)) return;
-  const dados={nome:R.nome,email:(c1||c2)?email:null,telemovel:c3?tel:null,pdf:c1,newsletter:c2,whatsapp:c3};
+  const email=$('fEmail').value.trim(), tel=$('fTel').value.trim(), c1=!!email&&$('c1').checked, c2=(!!email||!!tel)&&$('c2').checked;
+  if(!CONFIG.envioUrl||!(c1||c2)) return;
+  const dados={nome:R.nome,email:(c1||c2)?email||null:null,telemovel:c2?tel||null:null,pdf:c1,newsletter:c2,whatsapp:false};
   if(c1){dados.resultado={leve:R.nL?N_LEVE[R.nL][0]:null,bolt,lenta:N_CALMA[R.nC][0],profunda:N_PROF[R.nP][0],padrao:PADRAO[lom],amplitude:rom,aberturaCm:difCm,primeiroPasso:EX[R.ordemEx[0].ex].n};dados.relatorioHtml=relatorioEmail();}
   try{fetch(CONFIG.envioUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(dados)}).catch(()=>{});}catch(e){}
 }
@@ -669,7 +668,7 @@ function relatorioEmail(){
   <tr><td style="border:1px solid #E3DED3;padding:9px"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td></tr>
   <tr><td style="border:1px solid #E3DED3;padding:9px"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td><td style="border:1px solid #E3DED3"></td></tr></table>
   <p style="font-size:9pt">Volta a fazer a autoavaliação de manhã, daqui a 2 a 4 semanas, e escreve aqui os novos valores.</p>
-  ${h4('O próximo passo é teu')}<p>Agendar conversa gratuita de cerca de 30 minutos: ${CONFIG.ctaUrl}</p>
+  ${h4('O próximo passo é teu')}<p>Mais sobre a ESSEN.CIA, as sessões e a conversa gratuita: ${CONFIG.ctaUrl}</p>
   <p style="font-size:8pt;color:#5A6B66;margin-top:16px">Autoavaliação, não diagnóstico. Se tens sintomas frequentes ou novos, fala com o teu médico. Fontes: Vranich et al., Frontiers in Physiology, 2025 (Breathing IQ); Kiesel et al., International Journal of Sports Physical Therapy, 2017; McKeown, Oxygen Advantage (BOLT). Classificação por níveis e textos: ESSEN.CIA.</p>
   </body></html>`;
 }
@@ -696,7 +695,7 @@ function relatorio(){
   <tr><td>${R.data.toLocaleDateString('pt-PT')}</td><td>${bolt!=null?bolt+' s':'–'}</td><td>${N_CALMA[R.nC][0]}</td><td>${N_PROF[R.nP][0]}</td></tr>
   <tr><td>&nbsp;</td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td></tr></table>
   <p style="font-size:9pt;margin-top:4px">Volta a fazer a autoavaliação de manhã, daqui a 2 a 4 semanas, e escreve aqui os novos valores.</p>
-  <h4>O próximo passo é teu</h4><p>Agendar conversa gratuita de cerca de 30 minutos: ${CONFIG.ctaUrl}</p>
+  <h4>O próximo passo é teu</h4><p>Mais sobre a ESSEN.CIA, as sessões e a conversa gratuita: ${CONFIG.ctaUrl}</p>
   <div class="fim">Autoavaliação, não diagnóstico. Se tens sintomas frequentes ou novos, fala com o teu médico. Fontes: Vranich et al., Frontiers in Physiology, 2025 (Breathing IQ; ilustrações dos exercícios: ESSEN.CIA); Kiesel et al., International Journal of Sports Physical Therapy, 2017; McKeown, Oxygen Advantage (BOLT). Classificação por níveis e textos: ESSEN.CIA.</div>`;
 }
 function guardarRelatorio(){
