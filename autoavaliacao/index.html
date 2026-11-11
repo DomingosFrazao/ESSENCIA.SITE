@@ -196,10 +196,11 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
       <li><b style="color:var(--bege);font-weight:500">Profunda.</b> O movimento parte do diafragma, em baixo, e não dos ombros. Medimos com o espelho e a fita.</li>
     </ol>
     </div>
-  <div class="material"><b>Vais precisar de:</b> 5 a 10 minutos, uma fita métrica de costura, um espelho e roupa justa.</div>
-  <div class="nota peq">Isto é uma autoavaliação, não um diagnóstico. Se tens dor no peito, tonturas, doença respiratória ou cardíaca, ou estás grávida, fala primeiro com um profissional de saúde. Se sentires desconforto em algum passo, para.</div>
+  <div class="material"><b>Vais precisar de:</b> 5 a 10 minutos, uma fita métrica de costura (se não tiveres, também dá), um espelho e roupa justa.</div>
+  <div class="nota peq">Isto é uma autoavaliação, não um diagnóstico. Se tens dor no peito, tonturas, doença respiratória ou cardíaca, ou estás grávida, aconselhamos que fales primeiro com um profissional de saúde. Se sentires desconforto em algum passo, para.</div>
+  <label class="consent" style="margin-top:16px"><input type="checkbox" id="c0" onchange="$('b0').disabled=!this.checked"><span>Percebi que é uma autoavaliação e não um diagnóstico, e que posso parar a qualquer momento.</span></label>
   <div id="ultima"></div>
-  <div class="botoes"><button class="prim cheio" onclick="ir(1)">Começar</button></div>
+  <div class="botoes"><button class="prim cheio" id="b0" onclick="ir(1)" disabled>Começar</button></div>
 </section>
 
 <!-- 1 · SOBRE TI -->
