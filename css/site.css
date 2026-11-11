@@ -326,3 +326,10 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .footer-news-note{font-size:12px;opacity:.75;margin-top:8px}
 /* botão dos cartões Empresas e Desporto: mesmo estilo, mais pequeno */
 .format-card .btn-card{align-self:flex-start;padding:9px 16px;min-height:38px;font-size:.78rem;margin-top:16px}
+
+/* troca de língua */
+.lang-switch{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-decoration:none;border:1px solid currentColor;border-radius:2px;padding:3px 7px;margin-left:6px;opacity:.85}
+.lang-switch:hover{opacity:1}
+.nav .lang-switch{align-self:center;padding:2px 7px !important;line-height:1.4;min-height:0;height:auto;border:1px solid currentColor !important;font-size:.75rem}
+.nav .lang-switch::after{display:none}
+@media(max-width:900px){.nav .lang-switch{align-self:flex-start;margin:10px 0 4px 5px}}
