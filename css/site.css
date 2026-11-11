@@ -333,3 +333,9 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .nav .lang-switch{align-self:center;padding:2px 7px !important;line-height:1.4;min-height:0;height:auto;border:1px solid currentColor !important;font-size:.75rem}
 .nav .lang-switch::after{display:none}
 @media(max-width:900px){.nav .lang-switch{align-self:flex-start;margin:10px 0 4px 5px}}
+
+/* PT · EN depois do botão principal */
+.lang-desk{align-self:center;margin-left:14px;color:inherit}
+.site-head .lang-desk{color:#e8e6df}
+@media(min-width:761px){.nav .lang-switch{display:none}}
+@media(max-width:760px){.site-head>.lang-desk{display:none}.nav .lang-switch{align-self:flex-start;margin:14px 0 4px 5px}}
