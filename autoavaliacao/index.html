@@ -35,7 +35,7 @@ ol.num li::before{content:counter(n);position:absolute;left:0;top:7px;width:24px
 .material{font-size:14px;color:var(--fundo);background:#E9DCC6;border-radius:14px;padding:14px 16px;margin:16px 0}
 .material b{font-weight:600}
 .nota.peq{font-size:12px;padding:10px 12px}
-.nota{font-size:13.5px;color:var(--bege);background:rgba(224,167,94,.14);border-left:3px solid var(--ambar);padding:12px 14px;border-radius:0 10px 10px 0;margin:16px 0}
+.nota{font-size:12.5px;color:var(--bege);background:rgba(224,167,94,.14);border-left:3px solid var(--ambar);padding:12px 14px;border-radius:0 10px 10px 0;margin:16px 0}
 .ref{font-size:13px;color:var(--t2);border:1px solid var(--linha);border-radius:14px;padding:14px 16px;margin:14px 0}
 .ref summary{cursor:pointer;color:var(--ambar);font-weight:500;margin-top:8px;list-style:none}
 .ref summary::-webkit-details-marker{display:none}
@@ -113,6 +113,9 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 .item p{margin-bottom:10px;color:var(--bege);font-weight:500}
 .escala{display:flex;gap:6px;flex-wrap:wrap}
 .escala button{min-height:40px;padding:6px 12px;font-size:12.5px;font-weight:500;border-color:var(--linha);letter-spacing:0;color:var(--t2)}
+#calma .escala{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+#calma .escala button{font-size:11.5px;padding:6px 3px;min-height:38px;line-height:1.2;text-align:center}
+#who .escala button{font-size:11.5px}
 .escala button.sel{background:var(--bege);border-color:var(--bege);color:var(--fundo)}
 .rodape{font-size:12px;color:var(--t3);margin-top:8px}
 /* resultado */
