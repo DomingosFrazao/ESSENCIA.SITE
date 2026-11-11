@@ -324,3 +324,5 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .footer-news input[type=email]::placeholder{color:rgba(232,230,223,.55)}
 .footer-news .btn{padding:10px 16px;font-size:14px;min-height:0}
 .footer-news-note{font-size:12px;opacity:.75;margin-top:8px}
+/* botão dos cartões Empresas e Desporto: mesmo estilo, mais pequeno */
+.format-card .btn-card{align-self:flex-start;padding:9px 16px;min-height:38px;font-size:.78rem;margin-top:16px}
