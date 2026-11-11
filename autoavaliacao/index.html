@@ -39,7 +39,7 @@ ol.num li::before{content:counter(n);position:absolute;left:0;top:7px;width:24px
 .ref{font-size:13px;color:var(--t2);border:1px solid var(--linha);border-radius:14px;padding:14px 16px;margin:14px 0}
 .ref summary{cursor:pointer;color:var(--ambar);font-weight:500;margin-top:8px;list-style:none}
 .ref summary::-webkit-details-marker{display:none}
-.ref details p{font-size:12.5px;margin:8px 0 0}
+.ref details p{font-size:11.5px;line-height:1.55;margin:8px 0 0}
 .ref a{color:var(--ambar)}
 .botoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
 button,.btn{font-family:Montserrat,sans-serif;font-size:15px;font-weight:600;letter-spacing:.03em;border-radius:30px;min-height:52px;padding:14px 26px;cursor:pointer;border:1px solid var(--bege);transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--bege)}
@@ -72,7 +72,7 @@ input::placeholder{color:var(--t3)}
 .bolha.cheia{transform:scale(1)}
 .fase{font-family:"EB Garamond",Georgia,serif;font-size:30px;min-height:40px;margin-top:-6px}
 .contagem{font-size:13px;color:var(--t3);min-height:20px}
-.porque{font-size:13.5px;color:var(--t2);border-left:2px solid var(--suave);padding:2px 0 2px 14px;margin:14px 0}
+.porque{font-size:12px;color:var(--t2);border-left:2px solid var(--suave);padding:2px 0 2px 14px;margin:14px 0}
 .porque b{color:var(--bege);font-weight:600}
 .consent input{margin-top:3px;accent-color:var(--ambar);width:18px;height:18px;flex-shrink:0}
 /* observação */
@@ -118,37 +118,40 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
 /* resultado */
 .leit{padding:4px 0 18px}
 .leit .topo{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.leit .nome{font-family:"EB Garamond",Georgia,serif;font-size:26px}
-.leit .val{font-size:13px;color:var(--t2)}
+.leit .nome{font-family:"EB Garamond",Georgia,serif;font-size:24px}
+.leit .val{font-size:12px;color:var(--t2)}
 .seg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:10px 0 8px}
 .seg i{height:8px;border-radius:4px;background:var(--linha)}
 .seg i.on:nth-child(1){background:#7D6650}.seg i.on:nth-child(2){background:#A8845A}.seg i.on:nth-child(3){background:#E0A75E}.seg i.on:nth-child(4){background:#D8D3B4}.seg i.on:nth-child(5){background:#F4F1EA}
-.leit p{font-size:14px;margin:0}
-.leit .det{font-size:12.5px;color:var(--t3);margin-top:6px}
+.leit p{font-size:13px;margin:0}
+.leit .det{font-size:11.5px;color:var(--t3);margin-top:6px}
 .passo{background:var(--bege);color:var(--fundo);border-radius:22px;padding:22px;margin:30px 0}
 .passo h3{color:var(--castanho)}
-.passo h2{color:var(--fundo);font-size:28px}
-.passo p{color:#3F524D;font-size:14.5px}
+.passo h2{color:var(--fundo);font-size:26px}
+.passo p{color:#3F524D;font-size:13.5px}
 .passo img{width:100%;max-width:340px;border-radius:12px;background:#F7F2EA;margin:4px 0 10px;display:block}
 .passo small{display:block;font-size:11px;color:#5A6B66}
 .lista details{border-bottom:1px solid var(--linha)}
-.lista summary{cursor:pointer;list-style:none;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:16px}
+.lista summary{cursor:pointer;list-style:none;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px}
 .lista summary::-webkit-details-marker{display:none}
 .lista summary::after{content:"+";color:var(--ambar);font-size:20px}
 .lista details[open] summary::after{content:"–"}
 .lista summary em{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ambar);margin-left:auto;margin-right:6px}
 .lista .corpo{padding:0 0 18px}
-.lista .corpo p{font-size:14.5px}
-.pers{background:rgba(244,241,234,.08);border-radius:12px;padding:12px 14px;color:var(--bege)!important;font-size:14px}
+.lista .corpo p{font-size:13.5px}
+.pers{background:rgba(244,241,234,.08);border-radius:12px;padding:12px 14px;color:var(--bege)!important;font-size:13px}
 .ex{display:flex;gap:14px;align-items:flex-start;padding:12px 0}
 .ex img{width:140px;border-radius:10px;background:#F7F2EA;flex-shrink:0}
 .ex .tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ambar)}
-.ex strong{display:block;font-size:15px;margin:2px 0 4px}
-.ex span{font-size:13.5px;color:var(--t2)}
+.ex strong{display:block;font-size:14px;margin:2px 0 4px}
+.ex span{font-size:12.5px;color:var(--t2)}
 .ex small{display:block;font-size:11px;color:var(--t3);margin-top:4px}
-.comp{font-size:13.5px;color:var(--t2)}.comp b{color:var(--bege);font-weight:600}
+.comp{font-size:12.5px;color:var(--t2)}.comp b{color:var(--bege);font-weight:600}
 .creditos{font-size:11.5px;color:var(--t3);margin-top:34px;padding-top:16px;border-top:1px solid var(--linha);line-height:1.6}
 .creditos a{color:var(--t2)}
+#e6>p{font-size:15px}
+#e6 .nota{font-size:12.5px}
+#e6>h2{font-size:clamp(26px,6.5vw,31px)}
 #relatorio{display:none}
 @media(max-width:440px){.obs{flex-direction:column;gap:8px}.ex{flex-direction:column}.ex img{width:100%;max-width:260px}}
 /* ===== relatório para imprimir / PDF ===== */
@@ -197,7 +200,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
     </ol>
     </div>
   <div class="material"><b>Vais precisar de:</b> 5 a 10 minutos, uma fita métrica de costura (se não tiveres, também dá), um espelho e roupa justa.</div>
-  <div class="nota peq">Isto é uma autoavaliação, não um diagnóstico. Se tens dor no peito, tonturas, doença respiratória ou cardíaca, ou estás grávida, aconselhamos que fales primeiro com um profissional de saúde. Se sentires desconforto em algum passo, para.</div>
+  <div class="nota peq">Estes testes são de <b>autoavaliação</b>, não um diagnóstico. Se tens dor no peito, tonturas, doença respiratória ou cardíaca, ou estás grávida, aconselhamos que fales primeiro com um profissional de saúde. Se sentires desconforto em algum passo, para.</div>
   <label class="consent" style="margin-top:16px"><input type="checkbox" id="c0" onchange="$('b0').disabled=!this.checked"><span>Percebi que é uma autoavaliação e não um diagnóstico, e que posso parar a qualquer momento.</span></label>
   <div id="ultima"></div>
   <div class="botoes"><button class="prim cheio" id="b0" onclick="ir(1)" disabled>Começar</button></div>
@@ -213,7 +216,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <div class="campo"><label>Sexo</label><div class="chips" id="fSexo"><button type="button" data-v="Mulher">Mulher</button><button type="button" data-v="Homem">Homem</button><button type="button" data-v="">Prefiro não dizer</button></div></div>
   <div class="campo"><label for="fAltura">Altura</label><div class="barra"><input type="range" id="fAltura" min="140" max="210" value="170"><output id="oAltura">170 cm</output></div></div>
   <div class="campo"><label for="fPeso">Peso</label><div class="barra"><input type="range" id="fPeso" min="40" max="150" value="70"><output id="oPeso">70 kg</output></div></div>
-  <p style="font-size:12.5px">A idade, o sexo, a altura e o peso não ficam gravados nem são enviados. Servem para enquadrar o relatório e só aparecem no teu relatório.</p>
+  <p style="font-size:12.5px">A idade, o sexo, a altura e o peso não ficam gravados nem são enviados. Servem para enquadrar os resultados e só aparecem no teu relatório.</p>
   <div class="campo"><label for="fEmail">E-mail <small>(opcional, para receberes o relatório em PDF)</small></label><input type="email" id="fEmail" name="email" autocomplete="email" inputmode="email"></div>
   <div class="campo"><label for="fTel">Telemóvel <small>(opcional)</small></label><input type="tel" id="fTel" name="tel" autocomplete="tel" inputmode="tel"></div>
   <div id="consents" style="display:none">
@@ -368,7 +371,7 @@ table.medidas td:first-child{font-size:13px;color:var(--t3);width:46px}
   <h2 style="margin-top:40px">O próximo passo é teu.</h2>
   <p>Esta leitura é um ponto de partida. No site encontras as sessões e o que fazemos na ESSEN.CIA, e, se quiseres, a forma de marcar uma conversa gratuita.</p>
   <a class="btn ambar cheio" id="cta" href="#" rel="noopener">Voltar ao site</a>
-  <p style="font-size:13.5px;margin-top:22px">Repete esta avaliação de manhã, daqui a 2 a 4 semanas. O resultado fica guardado neste navegador para poderes comparar.</p>
+  <p style="font-size:13.5px;margin-top:22px">Repete esta avaliação de manhã, daqui a 2 a 4 semanas, para veres a tua evolução. O resultado fica guardado neste navegador para poderes comparar.</p>
   <div class="botoes">
     <button onclick="guardarRelatorio()">Guardar relatório (PDF)</button>
     <button onclick="copiar(this)">Copiar resumo</button>
