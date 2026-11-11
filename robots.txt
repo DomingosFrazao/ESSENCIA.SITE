@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /versoes-anteriores/
+Disallow: /diagnostico/
+Sitemap: https://essenciabreath.com/sitemap.xml

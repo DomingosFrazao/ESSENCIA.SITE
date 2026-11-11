@@ -315,3 +315,12 @@ p,.wide-prose p,.long-read p,.essence-section p,.card p,article p{text-align:lef
 .essence-img img[src*="explorar-2"]{object-position:35% center}
 @media(max-width:760px){.self-check-icon{width:54px;flex:0 0 54px}}
 .essence-img img[src*="sentir-2"]{object-position:55% 40%}
+
+/* newsletter no rodapé */
+.footer-news{margin-top:22px;max-width:340px;position:relative}
+.footer-news label{display:block;font-size:14px;margin-bottom:8px}
+.footer-news-row{display:flex;gap:8px}
+.footer-news input[type=email]{flex:1;min-width:0;font:inherit;font-size:14px;padding:10px 12px;border-radius:999px;border:1px solid rgba(232,230,223,.35);background:transparent;color:inherit}
+.footer-news input[type=email]::placeholder{color:rgba(232,230,223,.55)}
+.footer-news .btn{padding:10px 16px;font-size:14px;min-height:0}
+.footer-news-note{font-size:12px;opacity:.75;margin-top:8px}
